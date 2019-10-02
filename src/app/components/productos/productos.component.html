@@ -1,0 +1,31 @@
+<main class="container mt-5">
+    <div>
+        <div class="alert alert-success text-center" role="alert" *ngIf="!productos">
+          <h4 class="alert-heading">Cargando ...</h4>
+          <p><i class="fa fa-refresh fa-3x fa-spin" aria-hidden="true"></i></p>
+          <p class="mb-0"></p>
+        </div>
+        <div *ngIf="productos" class="animated jackInTheBox">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Stock</th>                        
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of productos">
+                        <td>{{p.id}}</td>
+                        <td>{{p.prod_name}}</td>
+                        <td>{{p.prod_prec}}</td>
+                        <td>{{p.prod_stock}}</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
