@@ -1,0 +1,56 @@
+<main class="container mt-5">
+    <section>
+        <h2 class="display-4">Crear Productito</h2>
+    </section>
+    <form class="mt-4 animated flipInX" #formulario="ngForm">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="">Nombre</label>
+                    <input type="text" class="form-control" required
+                        [(ngModel)]="objProductos.name"
+                        name="nombreP">
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="">Precio</label>
+                    <input type="text" class="form-control" required
+                    [(ngModel)]="objProductos.preci"
+                        name="precioP">
+                </div>
+                <div class="col-md-6"></div>
+        </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="">Stock</label>
+                    <input type="text" class="form-control" required
+                    [(ngModel)]="objProductos.stock"
+                        name="stockP">
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-dark btn-block btn-le"
+                        [disabled]="!formulario.valid">
+                        <i class="fas fa-save    "></i>
+                        Registrar Producto
+                    </button>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            
+        </div>
+        
+
+    </form>
+
+</main>

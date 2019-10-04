@@ -5,7 +5,7 @@
           <p><i class="fa fa-refresh fa-3x fa-spin" aria-hidden="true"></i></p>
           <p class="mb-0"></p>
         </div>
-        <div *ngIf="productos" class="animated jackInTheBox">
+        <div *ngIf="productos" class="animated fadeIn">
             <table class="table">
                 <thead>
                     <tr>
@@ -28,4 +28,7 @@
             </table>
         </div>
     </div>
+    <button class="btn btn-success btnCrear animated bounce infinite slow"(click)="crearFactura()">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+    </button>
 </main>
