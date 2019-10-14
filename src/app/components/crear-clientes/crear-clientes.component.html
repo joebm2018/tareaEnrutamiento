@@ -8,7 +8,7 @@
                     <div class="col-md-6">
                         <label for="">Nombre</label>
                         <input type="text" class="form-control" required
-                            [(ngModel)]="objClientes.name"
+                            [(ngModel)]="objClientes.clie_name"
                             name="nombrec">
                     </div>
                     <div class="col-md-6"></div>
@@ -19,7 +19,7 @@
                     <div class="col-md-6">
                         <label for="">Apellidos</label>
                         <input type="text" class="form-control" required
-                        [(ngModel)]="objClientes.last"
+                        [(ngModel)]="objClientes.clie_last"
                             name="apellidos">
                     </div>
                     <div class="col-md-6"></div>
@@ -30,7 +30,7 @@
                     <div class="col-md-6">
                         <label for="">Direccion</label>
                         <input type="text" class="form-control" required
-                        [(ngModel)]="objClientes.dir"
+                        [(ngModel)]="objClientes.clie_dir"
                             name="direcccion">
                     </div>
                     <div class="col-md-6"></div>
@@ -41,7 +41,7 @@
                         <div class="col-md-6">
                             <label for="">Telefono</label>
                             <input type="text" class="form-control" required
-                            [(ngModel)]="objClientes.tel"
+                            [(ngModel)]="objClientes.clie_tel"
                                 name="telefono">
                         </div>
                         <div class="col-md-6"></div>
@@ -51,7 +51,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <button type="submit" class="btn btn-dark btn-block btn-le"
-                            [disabled]="!formulario.valid">
+                            [disabled]="!formulario.valid"
+                            (click)="crearCliente()">
                             <i class="fas fa-save    "></i>
                             Registrar Cliente
                         </button>

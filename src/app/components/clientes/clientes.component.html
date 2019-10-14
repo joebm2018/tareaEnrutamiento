@@ -1,4 +1,86 @@
+<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Clientes</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form class="mt-4 animated flipInX" #formulario="ngForm">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Nombre</label>
+                                        <input type="text" class="form-control" required
+                                            [(ngModel)]="objClientes.clie_name"
+                                            name="nombrec">
+                                    </div>
+                                    <div class="col-md-6">
+                                            <label for="">ID:</label>
+                                            <input type="text" class="form-control" required
+                                                [(ngModel)]="objClientes.id"
+                                                name="id"
+                                                disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Apellidos</label>
+                                        <input type="text" class="form-control" required
+                                        [(ngModel)]="objClientes.clie_last"
+                                            name="apellidos">
+                                    </div>
+                                    <div class="col-md-6"></div>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Direccion</label>
+                                        <input type="text" class="form-control" required
+                                        [(ngModel)]="objClientes.clie_dir"
+                                            name="direcccion">
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Telefono</label>
+                                        <input type="text" class="form-control" required
+                                        [(ngModel)]="objClientes.clie_tel"
+                                            name="telefono">
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn btn-dark btn-block btn-le"
+                                            [disabled]="!formulario.valid"
+                                            (click)="actualizarCliente(objClientes)">
+                                            <i class="fas fa-save    "></i>
+                                            Guardar Cambios
+                                        </button>
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
 <main class="container mt-5">
+        <button class="btn btn-danger" *ngIf="clientesSeleccionados.length>0" (click)="eliminarClientes()">Eliminar Clientes</button>
     <div>
         <div class="alert alert-success text-center" role="alert" *ngIf="!clientes">
           <h4 class="alert-heading">Cargando ...</h4>
@@ -9,21 +91,28 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Sel.</th>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Apellidos</th>
                         <th>Telefono</th> 
-                        <th>Direccion</th>                       
+                        <th>Direccion</th>  
+                        <th>Acciones</th>                     
                         
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let c of clientes">
+                        <td><input type="checkbox" class="form-control"(change)="seleccionarCliente($event,c)"></td>
                         <td>{{c.id}}</td>
                         <td>{{c.clie_name}}</td>
                         <td>{{c.clie_last}}</td>
                         <td>{{c.clie_tel}}</td>
                         <td>{{c.clie_dir}}</td>
+                        <td style="display: flex;">
+                            <button  class="btn btn-primary" (click)="abrirModalEditar(c.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button  class="btn btn-danger ml-2" (click)="borrarCliente(c.id)"> <i class="fas fa-trash-alt    "></i></button>
+                        </td>
                     </tr>
                     
                 </tbody>
